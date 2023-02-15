@@ -3,6 +3,7 @@ var app = express()
 var cors = require('cors')
 let projectCollection; 
 let http = require('http').createServer(app);
+let io = require('socket.io')(http);​
 
 
 app.use(express.static(__dirname+'/public'))
@@ -86,7 +87,7 @@ console.log("App listening to http://localhost:"+port)
 createCollection('Cars')
 })
 
-let io = require('socket.io')(http);​
+
 
 io.on('connection', (socket) => {​
 
